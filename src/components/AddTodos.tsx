@@ -1,5 +1,7 @@
 import { Button } from 'react-bootstrap';
 import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import './Todo.css'
 import useTodoStore from '../app/todo/todoSlice'; 
 import { useNavigate } from 'react-router-dom';
 
@@ -32,7 +34,7 @@ const AddTodo = () => {
     navigate('/');
   };
   return (
-    <div className='container p-5'>
+    <div className='container p-5 add'>
       <form className='d-flex justify-content-center' onSubmit={handleSubmit}>
         <div className='w-50'>
           <h1 className='mb-4 text-center'>Add Todos</h1>
@@ -51,13 +53,19 @@ const AddTodo = () => {
           </div>
 
           <div className='mb-3 form-check'>
-            <input
+            {/* <input
               type="checkbox"
               className='form-check-input'
               id='completed'
               name='completed'
               checked={formData.completed}
               onChange={handleChange}
+            /> */}
+            <Form.Check
+              inline
+              name="group1"
+              reverse
+              type='switch'
             />
             <label htmlFor="completed" className='form-check-label'>Completed</label>
           </div>
